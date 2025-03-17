@@ -27,7 +27,17 @@ export class UsersController {
   @ApiBearerAuth('JWT')
   @UseGuards(AuthGuard('jwt'))
   @ApiOperation({ summary: 'Get all users' })
-  @ApiResponse({ status: 200, description: 'Return all users' })
+  @ApiResponse({
+    status: 200,
+    description: 'Return all users',
+    example: [
+      {
+        id: 1,
+        name: 'John Doe',
+        email: 'john.doe@example.com',
+      },
+    ],
+  })
   async getAllUsers(): Promise<User[]> {
     return this.usersService.getAllUsers();
   }

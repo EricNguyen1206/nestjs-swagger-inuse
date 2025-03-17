@@ -20,7 +20,10 @@ export class UsersService {
       fs.mkdirSync(dir, { recursive: true });
     }
     if (!fs.existsSync(this.csvFilePath)) {
-      fs.writeFileSync(this.csvFilePath, 'id,name,email,password\n');
+      fs.writeFileSync(
+        this.csvFilePath,
+        'id,name,email,password\n1,admin,user@example.com,password123',
+      );
     }
   }
 
